@@ -1,16 +1,21 @@
 {
 	"compilerOptions": {
 		"module": "commonjs",
-		"target": "es6",
-		"outDir": "out",
+		"target": "ESNext",
 		"lib": [
-			"es6"
+			"ESNext"
 		],
+		"baseUrl": "src",
+		"outDir": "dist",
+		"paths": {
+			"@/*": ["./*"]
+		},
 		"sourceMap": true,
-		"rootDir": "."
-	},
-	"exclude": [
-		"node_modules",
-		".vscode-test"
-	]
+		"newLine": "lf",
+		"strict": true,
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
+		"noImplicitOverride": true,
+		"exactOptionalPropertyTypes": true
+	}
 }
