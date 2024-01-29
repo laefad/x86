@@ -10,3 +10,12 @@ export interface ASMInstruction {
     url: string
     description: string
 }
+
+export type Message = {
+    type: 'data',
+    data: {
+        [name: string]: ASMInstruction[]
+    } | null
+} | {
+    type: 'loaded'
+}

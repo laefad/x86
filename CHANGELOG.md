@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.1 
+
+1. Fixed icons in webview lists.
+2. Changed a WebviewViewProvider instead of a TreeDataProvider.
+3. Added some vscode webview ui packages.
+
 ## 0.5.0
 
 Complete reworking of the expansion: 

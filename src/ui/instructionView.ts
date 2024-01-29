@@ -1,8 +1,7 @@
 import type { ExtensionContext, Webview } from 'vscode'
 import type { ASMInstruction } from '@/types'
 
-import * as vscode from 'vscode'
-import { Uri } from 'vscode'
+import { Uri, ViewColumn, window, workspace } from 'vscode'
 import { JSDOM } from 'jsdom'
 
 export class InstructionView {
@@ -21,10 +20,10 @@ export class InstructionView {
 		// SOLUTION: Change all : into _
 		const fileName = instruction.url.replace(/:/gi, '_').concat('.html')
 
-		const panel = vscode.window.createWebviewPanel(
+		const panel = window.createWebviewPanel(
 			'x86.instructionView',
 			`${instruction.name}`,
-			vscode.ViewColumn.One
+			ViewColumn.One
 		)
 
 		panel.iconPath = Uri.joinPath(this.context.extensionUri, 'media/icons/x86_white_128.png')
@@ -43,7 +42,7 @@ export class InstructionView {
 	) {
 		try {
 			const fileUri = Uri.joinPath(this.context.globalStorageUri, 'pages', fileName)
-			const file = await vscode.workspace.fs.readFile(fileUri)
+			const file = await workspace.fs.readFile(fileUri)
 			return Buffer.from(file).toString('utf-8')
 		} catch (err) {
 			console.log(`File ${fileName} doesn't exists in cache`)
@@ -70,7 +69,7 @@ export class InstructionView {
 
 		const html = jsdom.serialize()
 
-		await vscode.workspace.fs.writeFile(
+		await workspace.fs.writeFile(
 			Uri.joinPath(this.context.globalStorageUri, 'pages', fileName),
 			Buffer.from(html)
 		)

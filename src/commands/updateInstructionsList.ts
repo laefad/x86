@@ -1,6 +1,6 @@
 import type { ExtensionContext } from 'vscode'
 import type { ASMInstruction } from '@/types'
-import type { InstructionsTreeDataProvider } from '@/ui/instructionTree'
+import type { InstructionsListWebview } from '@/ui/instructionsList'
 
 import { Uri } from 'vscode'
 import * as vscode from 'vscode'
@@ -12,7 +12,7 @@ export const updateInstructionsListCommand: string = `updateInstructionsList`
 
 export const initUpdateInstructionsListCommand = (
     context: ExtensionContext,
-    instructionTree: InstructionsTreeDataProvider
+    instructionTree: InstructionsListWebview
 ) => {
     initCommand(
 		context.subscriptions, 
@@ -23,7 +23,7 @@ export const initUpdateInstructionsListCommand = (
 
 const updateInstructionsList = async (
     context: ExtensionContext,
-    instructionTree: InstructionsTreeDataProvider
+    instructionTree: InstructionsListWebview
 ) => {
     const data = await fetch('https://www.felixcloutier.com/x86/index.html')
         .then(response => response.text())

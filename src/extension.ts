@@ -1,21 +1,21 @@
 import type { ExtensionContext } from 'vscode'
 
-import * as vscode from 'vscode'
-
+import { Uri, workspace, commands } from 'vscode'
 import { initOpenInstructionViewCommand } from '@/commands/openInstructionView'
 import { initUpdateInstructionsListCommand, updateInstructionsListCommand } from '@/commands/updateInstructionsList'
-import { initInstructionsTree } from '@/ui/instructionTree'
-import { InstructionView } from './ui/instructionView'
+import { InstructionView } from '@/ui/instructionView'
+import { initInstructionsListWebview } from '@/ui/instructionsList'
+
 
 export function activate(context: ExtensionContext) {
-	const instructionsTree = initInstructionsTree(context)
+	const webviewProvider = initInstructionsListWebview(context)
 	const instructionView = new InstructionView(context)
 
-	initUpdateInstructionsListCommand(context, instructionsTree)
+	initUpdateInstructionsListCommand(context, webviewProvider)
 	initOpenInstructionViewCommand(context, instructionView)
 
 	// create directories /whiteout2.x86 and /whiteout2.x86/pages
-	vscode.workspace.fs.createDirectory(vscode.Uri.joinPath(context.globalStorageUri, 'pages'))
+	workspace.fs.createDirectory(Uri.joinPath(context.globalStorageUri, 'pages'))
 
-	vscode.commands.executeCommand(updateInstructionsListCommand)
+	commands.executeCommand(updateInstructionsListCommand)
 }
