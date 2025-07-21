@@ -1,11 +1,7 @@
 import type { TextField } from '@vscode/webview-ui-toolkit'
 import type { VscodeTree } from '@vscode-elements/elements'
 import type { TreeItem, TreeItemIconConfig } from '@vscode-elements/elements/dist/vscode-tree/vscode-tree'
-import type { ASMInstruction, Message } from '@/types'
-
-type Data = {
-    [name: string]: ASMInstruction[];
-} | null;
+import type { InstructionList, Message } from '@/types'
 
 // Add custom html elements
 import { provideVSCodeDesignSystem, vsCodeTextField } from '@vscode/webview-ui-toolkit'
@@ -17,7 +13,7 @@ const vscode = acquireVsCodeApi()
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    let data: Data = null
+    let data: InstructionList = null
     let filter: string = ""
     
     const searchField = document.getElementById("search") as TextField
@@ -30,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     vscode.postMessage({
         type: 'loaded'
-    })
+    } as Message)
 
     window.addEventListener('message', (event) => {
         const message: Message = event.data
@@ -40,16 +36,29 @@ document.addEventListener("DOMContentLoaded", () => {
             fillTree(tree, data, filter)
         }
     })
+
+    tree.addEventListener('vsc-tree-select', (event) => {
+
+        const { itemType, value, label } = event.detail
+
+        if (itemType == 'leaf') {
+            vscode.postMessage({
+                type: 'selected',
+                data: {
+                    url: value,
+                    name: label
+                }
+            } as Message)
+        }
+
+    })
 })
 
+const fillTree = (tree: VscodeTree, data: InstructionList, filter: string) => {
 
-// TODO fix icons
-const fillTree = (tree: VscodeTree, data: Data, filter: string) => {
-
-    // Also need to add these names to webpack config
     const icons: TreeItemIconConfig = {
-        branch: 'chevron-right',
-        open: 'chevron-left',
+        branch: 'chevron-down',
+        open: 'chevron-up',
         leaf: 'dash'
     }
 
@@ -75,7 +84,7 @@ const fillTree = (tree: VscodeTree, data: Data, filter: string) => {
             } as TreeItem))
 
         treeData.push({
-            // save previos state
+            // save previous state
             ...prevState,
             icons,
             label: instructionsDirName,

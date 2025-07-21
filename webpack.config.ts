@@ -49,12 +49,7 @@ const config: webpack.Configuration = {
           to: './',
           filter: (path) => (/.*(\.ttf|\.css)/gm).test(path)
         },
-        { 
-          from: 'media/instructionsList.css', 
-          to: './',
-          filter: (path) => (/.*(\.ttf|\.css)/gm).test(path)
-        },
-        // { from: 'node_modules/@vscode-elements/elements/dist/bundled.js', to: 'vscodeUI.js'}
+        { from: 'node_modules/@vscode-elements/elements/dist/bundled.js', to: 'vscodeUI.js'}
       ]
     })
   ]

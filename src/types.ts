@@ -5,17 +5,22 @@ export interface Command {
     command: string
 }
 
-export interface ASMInstruction {
+export interface Instruction {
     name: string
     url: string
-    description: string
+    description?: string
 }
+
+export type InstructionList = {
+    [architectureType: string]: Instruction[]
+} | null
 
 export type Message = {
     type: 'data',
-    data: {
-        [name: string]: ASMInstruction[]
-    } | null
+    data: InstructionList
 } | {
     type: 'loaded'
+} | {
+    type: 'selected',
+    data: Instruction
 }

@@ -5,13 +5,16 @@ import { initOpenInstructionViewCommand } from '@/commands/openInstructionView'
 import { initUpdateInstructionsListCommand, updateInstructionsListCommand } from '@/commands/updateInstructionsList'
 import { InstructionView } from '@/ui/instructionView'
 import { initInstructionsListWebview } from '@/ui/instructionsList'
+import { Parser } from '@/parser'
 
 
 export function activate(context: ExtensionContext) {
-	const webviewProvider = initInstructionsListWebview(context)
+
+	const parser = new Parser(context)
+	const webviewProvider = initInstructionsListWebview(context, parser)
 	const instructionView = new InstructionView(context)
 
-	initUpdateInstructionsListCommand(context, webviewProvider)
+	initUpdateInstructionsListCommand(context, parser, webviewProvider)
 	initOpenInstructionViewCommand(context, instructionView)
 
 	// create directories /whiteout2.x86 and /whiteout2.x86/pages

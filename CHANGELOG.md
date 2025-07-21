@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.2
+
+1. Moved all parsing related code to the specified class Parser.
+2. Update deps versions.
+3. Finally fixed icons via importing js bundle from @vscode-elements.
+
 ## 0.5.1 
 
 1. Fixed icons in webview lists.

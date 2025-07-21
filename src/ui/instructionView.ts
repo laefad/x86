@@ -1,5 +1,5 @@
 import type { ExtensionContext, Webview } from 'vscode'
-import type { ASMInstruction } from '@/types'
+import type { Instruction } from '@/types'
 
 import { Uri, ViewColumn, window, workspace } from 'vscode'
 import { JSDOM } from 'jsdom'
@@ -13,7 +13,7 @@ export class InstructionView {
 	}
 
 	public async openPanel (
-		instruction: ASMInstruction
+		instruction: Instruction
 	) {
 		// NOTE: Some html files have : in their names. 
 		// Mac turns them to /. Windows refuses to write them.
