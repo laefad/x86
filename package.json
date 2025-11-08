@@ -2,11 +2,11 @@
     "name": "x86",
     "displayName": "x86 Instruction Reference",
     "description": "Intel x86 instruction reference in a VS Code custom Activity Bar view",
-    "version": "0.5.2",
-    "publisher": "whiteout2",
+    "version": "0.5.3",
+    "publisher": "laefad",
     "contributors": [
         "rgosens2",
-        "laefad"
+        "whiteout2"
     ],
     "engines": {
         "vscode": "^1.85.0"
@@ -19,7 +19,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/whiteout2/x86.git"
+        "url": "https://github.com/laefad/x86.git"
     },
     "icon": "media/icons/x86_white_128.png",
     "license": "MIT",

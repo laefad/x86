@@ -1,23 +1,7 @@
 # x86 Instruction Reference
 
-- shows x86 instructions in side bar
-- custom activity bar icon [x86]
-- parses and references https://www.felixcloutier.com/x86
-<br>
+- Shows x86 instructions in side bar
+- Custom activity bar icon [x86]
+- Parses and references https://www.felixcloutier.com/x86
 
-
-![Image of x86 extension](https://raw.githubusercontent.com/whiteout2/x86/master/media/x86_screenshot2.png)
-
-
-<!-- # Custom tree view samples
-
-- Node dependencies view
-- Json Outline view
-- Ftp file explorer view
-
-## Running the example
-
-- Open this example in VS Code Insiders
-- `npm install`
-- `npm run compile`
-- `F5` to start debugging -->
+![Image of x86 extension](/media/x86_screenshot2.png)

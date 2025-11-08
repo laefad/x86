@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.3
+
+1. Changed the README and screenshots for the new version 
+2. Changed the extension publisher and the extension data directory name
+3. Updated the license
+
 ## 0.5.2
 
 1. Moved all parsing related code to the specified class Parser.

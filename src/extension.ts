@@ -17,7 +17,7 @@ export function activate(context: ExtensionContext) {
 	initUpdateInstructionsListCommand(context, parser, webviewProvider)
 	initOpenInstructionViewCommand(context, instructionView)
 
-	// create directories /whiteout2.x86 and /whiteout2.x86/pages
+	// create directories /laefad.x86 and /laefad.x86/pages
 	workspace.fs.createDirectory(Uri.joinPath(context.globalStorageUri, 'pages'))
 
 	commands.executeCommand(updateInstructionsListCommand)

@@ -3,6 +3,7 @@ import type { Instruction, InstructionList } from '@/types'
 
 import { Uri, workspace } from 'vscode'
 import { JSDOM } from 'jsdom'
+import { X86_REFERENCE_SITE } from '@/constants'
 
 export class Parser {
 
@@ -35,7 +36,7 @@ export class Parser {
     }
 
     private async parseInstructionsList() {
-        return fetch('https://www.felixcloutier.com/x86/index.html')
+        return fetch(X86_REFERENCE_SITE)
             .then(response => response.text())
             .then(text => {
                 return new JSDOM(text)
