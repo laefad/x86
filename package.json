@@ -1,6 +1,6 @@
 {
-    "name": "x86",
-    "displayName": "x86 Instruction Reference",
+    "name": "x86-rework",
+    "displayName": "x86 Instruction Reference. Reworked version",
     "description": "Intel x86 instruction reference in a VS Code custom Activity Bar view",
     "version": "0.5.3",
     "publisher": "laefad",
