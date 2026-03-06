@@ -1,10 +1,16 @@
 # Change Log
 
+## 0.5.4
+
+1. Updated README with fork notice and improvements overview.
+2. Changed extension icon to differentiate from the original.
+3. Rewrote extension description for clarity and uniqueness.
+
 ## 0.5.3
 
-1. Changed the README and screenshots for the new version 
-2. Changed the extension publisher and the extension data directory name
-3. Updated the license
+1. Changed the README and screenshots for the new version.
+2. Changed the extension publisher and the extension data directory name.
+3. Updated the license.
 
 ## 0.5.2
 

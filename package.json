@@ -1,12 +1,13 @@
 {
     "name": "x86-rework",
     "displayName": "x86 Instruction Reference. Reworked version",
-    "description": "Intel x86 instruction reference in a VS Code custom Activity Bar view",
-    "version": "0.5.3",
+    "description": "Browse Intel x86 instruction set documentation from a dedicated Activity Bar view",
+    "version": "0.5.4",
     "publisher": "laefad",
     "contributors": [
         "rgosens2",
-        "whiteout2"
+        "whiteout2",
+        "laefad"
     ],
     "engines": {
         "vscode": "^1.85.0"
